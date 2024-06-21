@@ -1,21 +1,46 @@
+/* Style todo items to match the theme */
 .todo-item {
+    background-color: #444;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 3px;
+    width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
+    align-items: center;
+    color: white;
   }
   
   .todo-item.completed span {
     text-decoration: line-through;
+    color: #888;
+  }
+  
+  .todo-item input[type="checkbox"] {
+    margin-right: 10px;
   }
   
   .todo-item input[type="text"] {
     flex: 1;
+    padding: 8px;
     margin-right: 10px;
+    color: black; /* Input text color */
+    background-color: white; /* Input background color */
+    border: none;
+    border-radius: 3px;
   }
   
   .todo-item button {
+    color: white;
+    background-color: #444;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
     margin-left: 5px;
+    border-radius: 3px;
+  }
+  
+  .todo-item button:hover {
+    background-color: #555;
   }
   

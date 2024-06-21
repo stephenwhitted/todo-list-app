@@ -1,16 +1,31 @@
+
 .todo-input {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
+    width: 100%;
   }
   
   .todo-input input {
     flex: 1;
     padding: 8px;
     margin-right: 10px;
+    color: black; /* Input text color */
+    background-color: white; /* Input background color */
+    border: none;
+    border-radius: 3px;
   }
   
   .todo-input button {
     padding: 8px 12px;
+    color: white;
+    background-color: #444;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .todo-input button:hover {
+    background-color: #555;
   }
   

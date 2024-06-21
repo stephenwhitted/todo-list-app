@@ -1,12 +1,71 @@
+
+body {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+
 .todo-app {
   width: 400px;
-  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Center the heading and ensure it has white color */
 h1 {
   text-align: center;
+  color: white;
+}
+
+/* Style input elements */
+input {
+  color: black; /* Input text color */
+  background-color: white; /* Input background color */
+  border: none;
+  padding: 8px;
+  border-radius: 3px;
+}
+
+button {
+  color: white;
+  background-color: #444;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 3px;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Style todo items */
+.todo-item {
+  background-color: #444;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 3px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Completed todo item style */
+.todo-item.completed span {
+  text-decoration: line-through;
+  color: #888;
 }
