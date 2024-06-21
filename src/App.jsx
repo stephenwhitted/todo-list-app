@@ -4,8 +4,10 @@ import './App.css';
 import TodoInput from './TodoInput';
 import TodoList from './TodoList';
 
-function App() {
-  const [count, setCount] = useState(0)
+
+  const initialState = {
+    todos: [],
+  };
 
   return (
     <>
