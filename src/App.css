@@ -7,11 +7,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  padding: 0; /* Remove padding to ensure full centering */
 }
 
-
+/* Center the todo app and give it a consistent background */
 .todo-app {
-  width: 400px;
+  width: 600px; /* Increase the width for better visibility */
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;
