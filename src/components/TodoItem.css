@@ -1,0 +1,21 @@
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .todo-item.completed span {
+    text-decoration: line-through;
+  }
+  
+  .todo-item input[type="text"] {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .todo-item button {
+    margin-left: 5px;
+  }
+  
