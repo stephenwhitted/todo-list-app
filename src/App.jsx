@@ -9,30 +9,56 @@ import TodoList from './TodoList';
     todos: [],
   };
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+ 
+const todoReducer = (draft, action) => {
+  switch (action.type) {
+    case 'ADD_TODO':
+      draft.todos.unshift({
+        id: Date.now(),
+        text: action.payload,
+        completed: false,
+        isEditing: false,
+      });
+      break;
+    case 'TOGGLE_COMPLETE':
+      const todo = draft.todos.find(todo => todo.id === action.payload);
+      todo.completed = !todo.completed;
+      break;
+    case 'DELETE_TODO':
+      draft.todos = draft.todos.filter(todo => todo.id !== action.payload);
+      break;
+    case 'EDIT_TODO':
+      draft.todos.find(todo => todo.id === action.payload).isEditing = true;
+      break;
+    case 'SAVE_TODO':
+      const editingTodo = draft.todos.find(todo => todo.id === action.payload.id);
+      editingTodo.text = action.payload.text;
+      editingTodo.isEditing = false;
+      break;
+    default:
+      break;
+  }
+};
 
-export default App
+const App = () => {
+  const [state, dispatch] = useImmerReducer(todoReducer, initialState);
+  const [newTodo, setNewTodo] = usestate('');
+
+  const handleAddTodo = () => {
+    if (newTodo.trim  ()) {
+      dispatch({ type: 'ADD_TODO', payload: newTodo });
+      setNewTodo ('');
+    
+  }
+};
+  return (
+      <div className="todo-app">
+        <h1>Create Todo List</h1>
+        <TodoInput newTodo={newTodo} setNewTodo={setNewTodo} handleAddTodo={handleAddTodo} />
+       <TodoList todos={state.todos} dispatch={dispatch} />
+       </div>
+  );
+};
+
+
+export default App;
